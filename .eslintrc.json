@@ -1,0 +1,26 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:@typescript-eslint/recommended",
+    "react-app",
+    "plugin:prettier/recommended",
+    "airbnb-typescript",
+    "airbnb/hooks"],
+  "plugins": ["@typescript-eslint", "react", "eslint-plugin-react-hooks"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/default-param-last": "off",
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}

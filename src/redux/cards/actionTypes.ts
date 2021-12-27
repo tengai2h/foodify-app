@@ -1,0 +1,3 @@
+export const GET_CARDS = 'GET_CARDS';
+export const SET_FAVORITES_CARDS = 'SET_FAVORITES_CARDS';
+export const SET_CUSTOM_CARD = 'SET_CUSTOM_CARD';

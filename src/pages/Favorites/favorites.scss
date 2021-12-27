@@ -1,0 +1,11 @@
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 1903px) {
+  .card-wrapper {
+    width: 100%;
+  }
+}
