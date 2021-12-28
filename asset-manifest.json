@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.1743e6f5.css",
-    "main.js": "/static/js/main.35b1708b.js",
-    "index.html": "/index.html",
-    "main.1743e6f5.css.map": "/static/css/main.1743e6f5.css.map",
-    "main.35b1708b.js.map": "/static/js/main.35b1708b.js.map"
+    "main.css": "/tengai2h/foodify-app/static/css/main.1743e6f5.css",
+    "main.js": "/tengai2h/foodify-app/static/js/main.f1a96448.js",
+    "index.html": "/tengai2h/foodify-app/index.html",
+    "main.1743e6f5.css.map": "/tengai2h/foodify-app/static/css/main.1743e6f5.css.map",
+    "main.f1a96448.js.map": "/tengai2h/foodify-app/static/js/main.f1a96448.js.map"
   },
   "entrypoints": [
     "static/css/main.1743e6f5.css",
-    "static/js/main.35b1708b.js"
+    "static/js/main.f1a96448.js"
   ]
 }
