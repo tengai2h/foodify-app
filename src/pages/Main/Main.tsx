@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Cards from '../../components/Cards/Cards';
+import Cards from 'components/Cards/Cards';
 
-const Main: React.FC = function () {
+const Main: React.FC = () => {
   return (
     <div className="main-cards-wrapper">
       <Cards />

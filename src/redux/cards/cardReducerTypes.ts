@@ -1,6 +1,6 @@
 import {
   GET_CARDS,
-  SET_CUSTOM_CARD,
+  ADD_NEW_DISH,
   SET_FAVORITES_CARDS,
 } from './actionTypes';
 
@@ -22,7 +22,7 @@ interface FavoriteCardAction {
 }
 
 interface CustomCardAction {
-  type: typeof SET_CUSTOM_CARD;
+  type: typeof ADD_NEW_DISH;
   payload: [];
 }
 export type UserAction =

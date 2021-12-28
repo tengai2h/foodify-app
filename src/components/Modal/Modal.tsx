@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
 import { Field, Formik } from 'formik';
+
 import { setCustomCard } from 'redux/cards/actions';
 
 interface Props {
-  setActive: () => void;
-  active: boolean;
+  setShowModal: () => void;
+  showModal: boolean;
 }
 
 interface MyFormValues {
@@ -14,12 +14,15 @@ interface MyFormValues {
   textArea: string;
 }
 
-const Modal: React.FC<Props> = ({ active, setActive }: Props) => {
+const Modal: React.FC<Props> = ({
+  showModal,
+  setShowModal,
+}: Props) => {
   const dispatch = useDispatch();
   const initialValues: MyFormValues = { input: '', textArea: '' };
   const onSubmit = (input: string, textArea: string) => {
     dispatch(setCustomCard(input, textArea));
-    setActive();
+    setShowModal();
   };
 
   return (
@@ -27,10 +30,10 @@ const Modal: React.FC<Props> = ({ active, setActive }: Props) => {
       initialValues={initialValues}
       onSubmit={(values) => console.log(values)}
     >
-      {({ values, handleChange }) => (
+      {({ values }) => (
         <div
-          className={active ? 'modal-background' : 'modal active'}
-          onClick={setActive}
+          className={showModal ? 'modal-background' : 'modal active'}
+          onClick={setShowModal}
         >
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-title">Add custom dish</div>
@@ -39,7 +42,6 @@ const Modal: React.FC<Props> = ({ active, setActive }: Props) => {
               type="text"
               placeholder="Dish title"
               value={values.input}
-              onChange={handleChange}
               name="input"
             ></Field>
             <Field
@@ -48,7 +50,6 @@ const Modal: React.FC<Props> = ({ active, setActive }: Props) => {
               name="textArea"
               placeholder="Dish description..."
               value={values.textArea}
-              onChange={handleChange}
             ></Field>
             <button
               className="add-dish-button"

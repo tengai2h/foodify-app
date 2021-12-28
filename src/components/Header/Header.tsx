@@ -5,8 +5,8 @@ import { ROUTES } from 'constants/routes';
 import Modal from 'components/Modal/Modal';
 
 const Header: React.FC = () => {
-  const [active, setActive] = useState(false);
-  const onClose = () => setActive(false);
+  const [showModal, setShowModal] = useState(false);
+  const onClose = () => setShowModal(false);
   const { pathname } = useLocation();
 
   const isFavoritesPage = useMemo(
@@ -27,18 +27,16 @@ const Header: React.FC = () => {
             Favorites
           </Link>
         </div>
-        {isFavoritesPage ? (
+        {isFavoritesPage && (
           <button
             className="header-button"
-            onClick={() => setActive(true)}
+            onClick={() => setShowModal(true)}
           >
             Add custom dish
           </button>
-        ) : (
-          ''
         )}
       </div>
-      <Modal setActive={onClose} active={active}></Modal>
+      <Modal setShowModal={onClose} showModal={showModal}></Modal>
     </header>
   );
 };

@@ -1,6 +1,6 @@
 import {
   GET_CARDS,
-  SET_CUSTOM_CARD,
+  ADD_NEW_DISH,
   SET_FAVORITES_CARDS,
 } from './actionTypes';
 import { CardState } from './cardReducerTypes';
@@ -32,7 +32,7 @@ export const cardReducer = (
         error: null,
         favoritesCards: [...state.favoritesCards, action.payload],
       };
-    case SET_CUSTOM_CARD:
+    case ADD_NEW_DISH:
       return {
         ...state,
         favoritesCards: [...state.favoritesCards, action.payload],

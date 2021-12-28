@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
-import { cardReducer } from './cards/cardReducer';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
+
+import { cardReducer } from './cards/cardReducer';
 
 const rootConfig = {
   key: 'root',

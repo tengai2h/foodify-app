@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 
 import { getCards, setFavoriteCards } from 'redux/cards/actions';
 import { useTypedSelector } from 'redux/cards/useTypedSelector';
-
 import Card from './Card/Card';
 import Button from 'components/Buttons/Button';
 import { likeButton, skipButton } from 'constants/buttons';
@@ -20,7 +19,7 @@ const Cards: React.FC = () => {
     dispatch(getCards());
   }, [dispatch]);
 
-  const handleChange = () => {
+  const getNewDish = () => {
     dispatch(getCards());
   };
 
@@ -31,13 +30,12 @@ const Cards: React.FC = () => {
 
   return (
     <div className="cards">
-      {loading
-        ? cards.map((elem, id) => <Card {...elem} key={id} />)
-        : false}
+      {loading &&
+        cards.map((elem, id) => <Card {...elem} key={id} />)}
       <div className="card-buttons">
         <Button
           {...skipButton}
-          handleChange={() => handleChange()}
+          handleChange={() => getNewDish()}
         ></Button>
         <Button
           {...likeButton}

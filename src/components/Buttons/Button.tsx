@@ -12,7 +12,7 @@ const Button: React.FC<Props> = ({
   handleChange,
 }: Props) => {
   return (
-    <button className={className} onClick={() => handleChange()}>
+    <button className={className} onClick={handleChange}>
       {cardText}
     </button>
   );

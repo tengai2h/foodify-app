@@ -1,20 +1,12 @@
 import { Dispatch } from 'redux';
+
 import {
   GET_CARDS,
-  SET_CUSTOM_CARD,
+  ADD_NEW_DISH,
   SET_FAVORITES_CARDS,
 } from './actionTypes';
 import { UserAction } from './cardReducerTypes';
-
-interface GetCardsCreatorType {
-  type: typeof GET_CARDS;
-  payload: [];
-}
-
-const getCardsCreator = (cards: []): GetCardsCreatorType => ({
-  type: GET_CARDS,
-  payload: cards,
-});
+import { getCardsCreator } from './actionCreators';
 
 export const getCards = () => {
   return async (dispatch: Dispatch<UserAction>) => {
@@ -22,20 +14,18 @@ export const getCards = () => {
       'https://www.themealdb.com/api/json/v1/1/random.php',
     );
     const { meals } = await data.json();
-    dispatch(getCardsCreator(meals));
+    dispatch(getCardsCreator(GET_CARDS, meals));
   };
 };
 
-export const setFavoriteCards = ([favoriteCards]: any) => ({
-  type: SET_FAVORITES_CARDS,
-  payload: favoriteCards,
-});
+export const setFavoriteCards = ([favoriteCards]: any) =>
+  getCardsCreator(SET_FAVORITES_CARDS, favoriteCards);
 
 export const setCustomCard = (
   strMeal: string,
   strInstructions: string,
 ) => ({
-  type: SET_CUSTOM_CARD,
+  type: ADD_NEW_DISH,
   payload: {
     strMeal,
     strInstructions,

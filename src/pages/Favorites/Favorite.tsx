@@ -1,14 +1,13 @@
-import Card from 'components/Cards/Card/Card';
 import React from 'react';
+
 import { useTypedSelector } from 'redux/cards/useTypedSelector';
+import Card from 'components/Cards/Card/Card';
+import { img } from 'constants/img';
 
 const Favorite: React.FC = () => {
   const favoritesCard = useTypedSelector(
     (state) => state.cards.favoritesCards,
   );
-
-  const img =
-    'https://s3-alpha.figma.com/hub/file/948140848/1f4d8ea7-e9d9-48b7-b70c-819482fb10fb-cover.png';
 
   return (
     <>
