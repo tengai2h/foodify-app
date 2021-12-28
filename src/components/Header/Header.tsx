@@ -6,7 +6,7 @@ import Modal from 'components/Modal/Modal';
 
 const Header: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
-  const onClose = () => setShowModal(false);
+  const handleShowModal = (isShow: boolean) => setShowModal(isShow);
   const { pathname } = useLocation();
 
   const isFavoritesPage = useMemo(
@@ -30,13 +30,16 @@ const Header: React.FC = () => {
         {isFavoritesPage && (
           <button
             className="header-button"
-            onClick={() => setShowModal(true)}
+            onClick={() => handleShowModal(true)}
           >
             Add custom dish
           </button>
         )}
       </div>
-      <Modal setShowModal={onClose} showModal={showModal}></Modal>
+      <Modal
+        setShowModal={handleShowModal}
+        showModal={showModal}
+      ></Modal>
     </header>
   );
 };

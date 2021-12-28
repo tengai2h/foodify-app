@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Field, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 
 import { setCustomCard } from 'redux/cards/actions';
 
 interface Props {
-  setShowModal: () => void;
+  setShowModal: (isShow: boolean) => void;
   showModal: boolean;
 }
 
@@ -22,20 +22,20 @@ const Modal: React.FC<Props> = ({
   const initialValues: MyFormValues = { input: '', textArea: '' };
   const onSubmit = (input: string, textArea: string) => {
     dispatch(setCustomCard(input, textArea));
-    setShowModal();
+    setShowModal(false);
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values) => onSubmit(values.input, values.textArea)}
     >
-      {({ values }) => (
+      {({ values, handleSubmit }) => (
         <div
           className={showModal ? 'modal-background' : 'modal active'}
-          onClick={setShowModal}
+          onClick={() => setShowModal(false)}
         >
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
+          <Form className="modal" onSubmit={handleSubmit}>
             <div className="modal-title">Add custom dish</div>
             <Field
               className="input-dish-title"
@@ -51,13 +51,10 @@ const Modal: React.FC<Props> = ({
               placeholder="Dish description..."
               value={values.textArea}
             ></Field>
-            <button
-              className="add-dish-button"
-              onClick={() => onSubmit(values.input, values.textArea)}
-            >
+            <button className="add-dish-button" type="submit">
               Add custom dish
             </button>
-          </div>
+          </Form>
         </div>
       )}
     </Formik>
